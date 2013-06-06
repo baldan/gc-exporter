@@ -55,7 +55,7 @@ public class ActivitySearch {
 		Client login = cl.login(args[0], args[1]);
 		ActivitySearch search = new ActivitySearch(login);
 		Collection<Activity> activities = search
-				.getActivities("mountain_biking");
+				.getActivities(args[2]);
 
 		for (Activity activity : activities) {
 			String activityName = activity.getActivityName();
@@ -70,7 +70,7 @@ public class ActivitySearch {
 					new MediaType[] { MediaType.APPLICATION_JSON_TYPE,
 							MediaType.APPLICATION_XML_TYPE,
 							MediaType.TEXT_HTML_TYPE }).get(File.class);
-			FileUtils.copyFile(file, new File(args[2] + "/" + activityName
+			FileUtils.copyFile(file, new File(args[3] + "/" + activityName
 					+ ".gpx"));
 		}
 	}
